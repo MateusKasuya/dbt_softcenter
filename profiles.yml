@@ -1,0 +1,12 @@
+dbt_softcenter:
+  outputs:
+    dev:
+      dbname: postgres
+      host: localhost
+      password: postgres
+      port: 5433
+      schema: public
+      threads: 1
+      type: postgres
+      user: postgres
+  target: dev
