@@ -1,6 +1,7 @@
 import os
 from src.utils.enums import Schema, Source, Table
 
+
 class DBTFileWriter:
     def __init__(
         self,
@@ -24,7 +25,7 @@ class DBTFileWriter:
         The output file will be placed in 'models/{source}/{schema}/{table}.sql'.
 
         Args:
-                source: The name of the source schema (e.g., 'fn9', 'f98'). 
+                source: The name of the source schema (e.g., 'fn9', 'f98').
                 schema: The name of the schema to be replicated.
                 table: The name of the table to be replicated.
                 sql_content: The content of the SQL file to be written.
@@ -62,9 +63,7 @@ class DBTFileWriter:
             The file path of the generated .yml file.
         """
         base_output_dir = f"models/{self.source.value}"
-        model_name = (
-            f"_{self.schema.value}_{self.source.value}_{self.table.value}.yml"
-        )
+        model_name = f"_{self.schema.value}_{self.source.value}_{self.table.value}.yml"
         schema_output_dir = os.path.join(base_output_dir, self.schema.value)
         file_path = os.path.join(schema_output_dir, model_name)
 

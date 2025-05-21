@@ -1,14 +1,17 @@
 from enum import Enum
 
+
 class Source(Enum):
     FN9 = "fn9"
     MGP = "mgp"
     RCR = "rcr"
 
+
 class Schema(Enum):
     SILVER = "silver"
     GOLD = "gold"
-    
+
+
 class Table(Enum):
     FRCTRC = "FRCTRC"
     CPTIT = "CPTIT"
