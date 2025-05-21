@@ -1,3 +1,4 @@
+---
 dbt_softcenter:
   outputs:
     dev:

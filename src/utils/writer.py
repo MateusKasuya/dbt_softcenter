@@ -33,13 +33,12 @@ class DBTFileWriter:
         Returns:
             The file path of the generated .sql file.
         """
-        base_output_dir = f"models/{self.source.value}"
-        model_name = f"{self.schema.value}_{self.source.value}_{self.table.value}.sql"
-        schema_output_dir = os.path.join(base_output_dir, self.schema.value)
-        file_path = os.path.join(schema_output_dir, model_name)
+        base_output_dir = f"models/{self.source.value}/{self.schema.value}"
+        model_name = f"{self.source.value}_{self.schema.value}_{self.table.value}.sql"
+        file_path = os.path.join(base_output_dir, model_name)
 
         # Ensure the subdirectory for the schema exists and the table
-        os.makedirs(schema_output_dir, exist_ok=True)
+        os.makedirs(base_output_dir, exist_ok=True)
 
         sql_content = self.sql_content
 
@@ -62,13 +61,12 @@ class DBTFileWriter:
         Returns:
             The file path of the generated .yml file.
         """
-        base_output_dir = f"models/{self.source.value}"
-        model_name = f"_{self.schema.value}_{self.source.value}_{self.table.value}.yml"
-        schema_output_dir = os.path.join(base_output_dir, self.schema.value)
-        file_path = os.path.join(schema_output_dir, model_name)
+        base_output_dir = f"models/{self.source.value}/{self.schema.value}"
+        model_name = f"_{self.source.value}_{self.schema.value}_{self.table.value}.yml"
+        file_path = os.path.join(base_output_dir, model_name)
 
         # Ensure the subdirectory for the schema exists
-        os.makedirs(schema_output_dir, exist_ok=True)
+        os.makedirs(base_output_dir, exist_ok=True)
 
         yml_content = self.yml_content
 

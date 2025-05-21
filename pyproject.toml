@@ -20,9 +20,10 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.11.10"
 taskipy = "^1.14.1"
+yamlfix = "^0.7.0"
 
 [tool.taskipy.tasks]
 fix = "ruff check . --fix"
 run = "poetry run python src/main"
-format = "ruff format"
+format = "ruff format . && find . -type f -name '*.yml' -o -name '*.yaml' | xargs yamlfix"
 
