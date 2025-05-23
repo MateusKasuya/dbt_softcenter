@@ -1,0 +1,24 @@
+yaml = f"""
+version: 2  # Versão do esquema de metadados
+
+models:
+  - name: {source}_{schema}_tbcid # Nome do modelo
+    description: "View Staging da TBCID"  # Descrição do modelo
+    columns:
+          - name: codcid
+            description: Código Cidade - Primary Key
+
+          - name: nome
+            description: Nome Cidade
+
+          - name: coduf
+            description: UF Cidade
+
+          - name: cidade_uf
+            description: Concatenado de Cidade e UF
+
+          - name: localizacao_pbi
+            description: Campo para ser utilizado como Mapa no Power BI
+
+
+"""
