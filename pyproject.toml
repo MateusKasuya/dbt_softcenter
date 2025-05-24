@@ -6,7 +6,10 @@ authors = [
     {name = "Mateus Kasuya",email = "mateusvbkasuya@gmail.com"}
 ]
 readme = "README.md"
-packages = [{ include = "src" }]
+packages = [
+    { include = "src" },
+    { include = "querys" }
+    ]
 requires-python = ">=3.12, <3.13"
 dependencies = [
     "dbt-postgres (>=1.9.0,<2.0.0)"
@@ -24,6 +27,6 @@ yamlfix = "^0.7.0"
 
 [tool.taskipy.tasks]
 fix = "ruff check . --fix"
-run = "poetry run python src/main"
+run = "set PYTHONPATH=%PYTHONPATH%;. && poetry run python src/main.py"
 format = "ruff format . && find . -type f -name '*.yml' -o -name '*.yaml' | xargs yamlfix"
 

@@ -1,4 +1,5 @@
-query = f"""
+def get_query_content(schema: str) -> str:
+    return f"""
 WITH source AS (
     SELECT *
     FROM {{{{source('{schema}', 'FRCTRC')}}}}
@@ -52,5 +53,4 @@ staging AS (
 
 SELECT *
 FROM staging
-
 """

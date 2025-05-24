@@ -1,4 +1,6 @@
-yaml = f"""
+def get_yml_content(source: str, schema: str) -> str:
+    return f"""
+yaml = f
 version: 2  # Versão do esquema de metadados
 
 models:
@@ -19,6 +21,4 @@ models:
 
           - name: localizacao_pbi
             description: Campo para ser utilizado como Mapa no Power BI
-
-
 """

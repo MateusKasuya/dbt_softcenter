@@ -1,4 +1,6 @@
-yaml = f"""
+def get_yml_content(source: str, schema: str) -> str:
+    return f"""
+yaml = f
 version: 2  # Versão do esquema de metadados
 
 models:
@@ -65,7 +67,4 @@ models:
 
           - name: codtransacao
             description: Código Transação
-
-
-
 """

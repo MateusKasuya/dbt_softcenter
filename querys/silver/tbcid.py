@@ -1,4 +1,6 @@
-query = f"""
+def get_query_content(schema: str) -> str:
+    return f"""
+query = f
 WITH source AS (
     SELECT *
     FROM {{{{source('{schema}', 'TBCID')}}}}
@@ -17,6 +19,4 @@ staging AS (
 
 SELECT *
 FROM staging
-
-
 """

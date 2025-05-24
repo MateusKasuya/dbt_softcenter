@@ -1,4 +1,5 @@
-query = f"""
+def get_query_content(schema: str) -> str:
+    return f"""
 WITH source AS (
     SELECT
         *
@@ -43,6 +44,4 @@ SELECT
     *
 FROM
     staging
-
-
 """

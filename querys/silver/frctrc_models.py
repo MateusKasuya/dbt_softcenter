@@ -1,4 +1,5 @@
-yaml = f"""
+def get_yml_content(source: str, schema: str) -> str:
+    return f"""
 version: 2  # Versão do esquema de metadados
 
 models:
@@ -55,5 +56,4 @@ models:
 
           - name: id_fatura
             description: ID da Fatura - FK FACTRC
-
 """
