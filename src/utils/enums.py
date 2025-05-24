@@ -7,19 +7,14 @@ class Source(Enum):
     RCR = "rcr"
 
 
-class Schema(Enum):
-    SILVER = "silver"
-    GOLD = "gold"
-
-
 class Table(Enum):
-    FRCTRC = "FRCTRC"
-    CPTIT = "CPTIT"
-    FACTRC = "FACTRC"
-    TBCID = "TBCID"
-    TBCLI = "TBCLI"
-    TBFIL = "TBFIL"
-    TBFOR = "TBFOR"
-    TBHIS = "TBHIS"
-    TBPRO = "TBPRO"
-    TBCTA = "TBCTA"
+    FRCTRC = "frctrc"
+    CPTIT = "cptit"
+    FACTRC = "factrc"
+    TBCID = "tbcid"
+    TBCLI = "tbcli"
+    TBFIL = "tbfil"
+    TBFOR = "tbfor"
+    TBHIS = "tbhis"
+    TBPRO = "tbpro"
+    TBCTA = "tbcta"

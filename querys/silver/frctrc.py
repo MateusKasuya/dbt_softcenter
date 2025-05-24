@@ -1,8 +1,8 @@
-def get_query_content(schema: str) -> str:
+def get_query_content(source: str) -> str:
     return f"""
 WITH source AS (
     SELECT *
-    FROM {{{{source('{schema}', 'FRCTRC')}}}}
+    FROM {{{{source('{source}', 'FRCTRC')}}}}
 ),
 
 staging AS (
@@ -45,7 +45,7 @@ staging AS (
         vlrimposto,
 
         -- Fatura
-        nrofatura || '-' || anofatura AS id_fatura,
+        nrofatura || '-' || anofatura AS id_fatura
 
     FROM source
     WHERE situacao IN ('N', 'F')

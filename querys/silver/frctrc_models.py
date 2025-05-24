@@ -1,10 +1,10 @@
-def get_yml_content(source: str, schema: str) -> str:
+def get_yml_content(source: str) -> str:
     return f"""
 version: 2  # Versão do esquema de metadados
 
 models:
-  - name: {source}_{schema}_frctrc # Nome do modelo
-    description: "View Staging da FRCTRC"  # Descrição do modelo
+  - name: {source}_silver_frctrc # Nome do modelo
+    description: "View Silver da FRCTRC"  # Descrição do modelo
     columns:
           - name: nroctrc
             description: Número CTRC - Primary Key Composta

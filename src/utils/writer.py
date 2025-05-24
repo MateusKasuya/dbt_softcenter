@@ -1,14 +1,12 @@
 import os
-from src.utils.enums import Schema, Source, Table
+from src.utils.enums import Source, Table
 
 
 class DBTFileWriter:
     def __init__(self, source: Source):
         self.source = source
 
-    def create_dbt_model_sql(
-        self, schema: Schema, table: Table, sql_content: str
-    ) -> str:
+    def create_dbt_silver_model_sql(self, table: Table, sql_content: str) -> str:
         """
         Generates a DBT model SQL file for the FRCTRC table with a dynamic source schema.
         The output file will be placed in 'models/{source}/{schema}/{table}.sql'.
@@ -22,8 +20,8 @@ class DBTFileWriter:
         Returns:
             The file path of the generated .sql file.
         """
-        base_output_dir = f"models/{self.source.value}/{schema}"
-        model_name = f"{self.source.value}_{schema}_{table}.sql"
+        base_output_dir = f"models/silver/{self.source.value}"
+        model_name = f"{self.source.value}_silver_{table.value}.sql"
         file_path = os.path.join(base_output_dir, model_name)
 
         # Ensure the subdirectory for the schema exists and the table
@@ -34,9 +32,7 @@ class DBTFileWriter:
 
         print(f"Generated SQL file: {file_path}")
 
-    def create_dbt_model_yml(
-        self, schema: Schema, table: Table, yml_content: str
-    ) -> str:
+    def create_dbt_silver_model_yml(self, table: Table, yml_content: str) -> str:
         """
         Generates a DBT model SQL file for the FRCTRC table with a dynamic source schema.
         The output file will be placed in 'dbt_softcenter/models/staging/{schema_name}/'.
@@ -49,8 +45,8 @@ class DBTFileWriter:
         Returns:
             The file path of the generated .yml file.
         """
-        base_output_dir = f"models/{self.source.value}/{schema}"
-        model_name = f"_{self.source.value}_{schema}_{table}.yml"
+        base_output_dir = f"models/silver/{self.source.value}"
+        model_name = f"_{self.source.value}_silver_{table.value}.yml"
         file_path = os.path.join(base_output_dir, model_name)
 
         # Ensure the subdirectory for the schema exists
@@ -73,8 +69,42 @@ class DBTFileWriter:
         Returns:
             The file path of the generated .yml file.
         """
-        base_output_dir = f"models/{self.source.value}"
+        base_output_dir = f"models/bronze"
         model_name = f"_{self.source.value}_sources.yml"
+        file_path = os.path.join(base_output_dir, model_name)
+
+        # Ensure the subdirectory for the schema exists
+        os.makedirs(base_output_dir, exist_ok=True)
+
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write(yml_content)
+
+        print(f"Generated YML file: {file_path}")
+
+    def create_dbt_gold_model_sql(self, table: Table, sql_content: str) -> str:
+        """
+        Generates a DBT model SQL file for the FRCTRC table with a dynamic source schema.
+        The output file will be placed in 'models/gold/{table}.sql'.
+        """
+        base_output_dir = f"models/gold"
+        model_name = f"gold_{table.value}.sql"
+        file_path = os.path.join(base_output_dir, model_name)
+
+        # Ensure the subdirectory for the schema exists
+        os.makedirs(base_output_dir, exist_ok=True)
+
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write(sql_content)
+
+        print(f"Generated SQL file: {file_path}")
+
+    def create_dbt_gold_model_yml(self, table: Table, yml_content: str) -> str:
+        """
+        Generates a DBT model SQL file for the FRCTRC table with a dynamic source schema.
+        The output file will be placed in 'models/gold/{table}.yml'.
+        """
+        base_output_dir = f"models/gold"
+        model_name = f"_gold_{table.value}.yml"
         file_path = os.path.join(base_output_dir, model_name)
 
         # Ensure the subdirectory for the schema exists

@@ -1,11 +1,10 @@
-def get_yml_content(source: str, schema: str) -> str:
+def get_yml_content(source: str) -> str:
     return f"""
-yaml = f
 version: 2  # Versão do esquema de metadados
 
 models:
-  - name: {source}_{schema}_tbcta # Nome do modelo
-    description: "View Staging da TBCTA"  # Descrição do modelo
+  - name: {source}_silver_tbcta # Nome do modelo
+    description: "View Silver da TBCTA"  # Descrição do modelo
     columns:
           - name: contareduz
             description: Código Conta Reduzida - Primary Key

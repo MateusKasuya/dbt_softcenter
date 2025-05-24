@@ -1,10 +1,10 @@
-def get_query_content(schema: str) -> str:
+def get_query_content(source: str) -> str:
     return f"""
 WITH source AS (
     SELECT
         *
     FROM
-        {{{{source('{schema}', 'CPTIT')}}}}
+        {{{{source('{source}', 'CPTIT')}}}}
 ),
 
 staging AS (
@@ -35,7 +35,6 @@ staging AS (
             WHEN vlrsaldo > 0 AND CURRENT_DATE <= datavencto::DATE THEN 'A Pagar'
             ELSE 'Em Atraso'
         END AS condicao_fatura
-
     FROM
         source
 )

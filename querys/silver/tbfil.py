@@ -1,11 +1,10 @@
-def get_query_content(schema: str) -> str:
+def get_query_content(source: str) -> str:
     return f"""
-query = f
 WITH source AS (
     SELECT
         *
     FROM
-        {{{{source('{schema}', 'TBFIL')}}}}
+        {{{{source('{source}', 'TBFIL')}}}}
 ),
 
 staging AS (

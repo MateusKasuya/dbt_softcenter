@@ -1,0 +1,12 @@
+---
+version: 2  # Versão do esquema de metadados
+
+models:
+  - name: mgp_silver_tbpro  # Nome do modelo
+    description: View Silver da TBPRO    # Descrição do modelo
+    columns:
+      - name: codpro
+        description: Código Produto - Primary Key
+
+      - name: nome
+        description: Nome Produto

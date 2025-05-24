@@ -31,3 +31,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   dbt_softcenter:
+    silver:
+      +materialized: view
+      +schema: silver
+      +docs:
+        node_color: '#cd7f32'
+    gold:
+      +materialized: view
+      +schema: gold
+      +docs:
+        node_color: '#c0c0c0'

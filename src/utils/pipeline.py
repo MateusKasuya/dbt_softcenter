@@ -1,12 +1,25 @@
 from utils.enums import Source
 
-from bronze.sources import sources
+from src.utils.sources import sources
+from src.utils.silver_models import silver_models
+from src.utils.gold_models import gold_models
 
 
-def write_source_yml():
-    list_of_sources = [Source.FN9, Source.MGP, Source.RCR]
+class Pipeline:
+    def __init__(self, source: Source):
+        self.source = source
 
-    for source in list_of_sources:
-        print(f"Writing source.yml for {source.value}")
-        sources(source)
-        print(f"source.yml for {source.value} written")
+    def write_source_yml(self):
+        print(f"Writing source.yml for {self.source.value}")
+        sources(self.source)
+        print(f"source.yml for {self.source.value} written")
+
+    def write_models(self):
+        print(f"Writing models for {self.source.value}")
+        silver_models(self.source)
+        print(f"models for {self.source.value} written")
+
+    def write_gold_models(self):
+        print(f"Writing gold models for {self.source.value}")
+        gold_models(self.source)
+        print(f"gold models for {self.source.value} written")

@@ -1,10 +1,10 @@
-def get_yml_content(source: str, schema: str) -> str:
+def get_yml_content(source: str) -> str:
     return f"""
 version: 2  # Versão do esquema de metadados
 
 models:
-  - name: {source}_{schema}_cptit # Nome do modelo
-    description: "View Staging da CPTIT"  # Descrição do modelo
+  - name: {source}_silver_cptit # Nome do modelo
+    description: "View Silver da CPTIT"  # Descrição do modelo
     columns:
           - name: nrocontrole
             description: Número Controle - Primary Key
