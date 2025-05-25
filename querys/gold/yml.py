@@ -3,7 +3,7 @@ def get_yml_content(table: str) -> str:
 version: 2  # Versão do esquema de metadados
 
 models:
-  - name: gold_{table} # Nome do modelo
+  - name: {table} # Nome do modelo
     description: "Tabela Gold da {table}"  # Descrição do modelo
     columns:
         - name: source

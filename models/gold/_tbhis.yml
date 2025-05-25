@@ -1,0 +1,9 @@
+---
+version: 2  # Versão do esquema de metadados
+
+models:
+  - name: tbhis  # Nome do modelo
+    description: Tabela Gold da tbhis    # Descrição do modelo
+    columns:
+      - name: source
+        description: Fonte de origem/ Empresa

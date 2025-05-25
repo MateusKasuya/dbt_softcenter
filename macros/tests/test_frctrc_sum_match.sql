@@ -1,4 +1,10 @@
 {% test frctrc_sum_match(model, source_table, source_schema, column_name, nome_empresa) %}
+    
+    
+    
+    
+    
+    
 SELECT 1
 FROM (
     SELECT COALESCE(ROUND(SUM({{ column_name }})::NUMERIC, 1), 0) AS source_sum
@@ -7,9 +13,15 @@ FROM (
 ) s,
 (
     SELECT COALESCE(ROUND(SUM({{ column_name }})::NUMERIC, 1), 0) AS model_sum
-    FROM {{ model }}
-    WHERE empresa = '{{ nome_empresa }}'
+    FROM gold.frctrc
+    WHERE source = '{{ nome_empresa }}'
 ) m
 WHERE NOT (s.source_sum IS NOT DISTINCT FROM m.model_sum)
+
+
+
+
+
+
 
 {% endtest %}

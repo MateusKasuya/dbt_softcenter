@@ -2,31 +2,22 @@
 
     {% set default_schema = target.schema %}
 
-    {# seeds go in a global `raw` schema #}
-    {% if node.resource_type == 'seed' %}
-        {{ custom_schema_name | trim }}
+    {% if 'silver' in node.path %}
+        {{ 'silver' }}
 
-    {# staging models go in a global `staging` schema #}
-    {% elif 'staging' in node.path %}
-        {{ 'staging' }}
+        {# gold models  go in a global `gold` schema #}
+    {% elif 'gold' in node.path %}
+        {{ 'gold' }}
 
-    {# marts models  go in a global `marts` schema #}
-    {% elif 'marts' in node.path %}
-        {{ 'marts' }}
-
-    {# marts models  go in a global `intermediate` schema #}
-    {% elif 'intermediate' in node.path %}
-        {{ 'intermediate' }}
-
-    {# non-specified schemas go to the default target schema #}
+        {# non-specified schemas go to the default target schema #}
     {% elif custom_schema_name is none %}
         {{ default_schema }}
 
-    {# specified custom schema names go to the schema name prepended with the default schema name in prod #}
+        {# specified custom schema names go to the schema name prepended with the default schema name in prod #}
     {% elif target.name == 'prod' %}
         {{ default_schema }}_{{ custom_schema_name | trim }}
 
-    {# specified custom schemas go to the default target schema for non-prod targets #}
+        {# specified custom schemas go to the default target schema for non-prod targets #}
     {% else %}
         {{ default_schema }}
     {% endif %}

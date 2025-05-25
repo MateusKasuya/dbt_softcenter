@@ -1,0 +1,12 @@
+---
+version: 2  # Versão do esquema de metadados
+
+models:
+  - name: rcr_tbfil  # Nome do modelo
+    description: View Silver da TBFIL    # Descrição do modelo
+    columns:
+      - name: codfil
+        description: Código Filial - Primary Key
+
+      - name: nome
+        description: Nome Filial

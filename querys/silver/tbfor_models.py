@@ -3,7 +3,7 @@ def get_yml_content(source: str) -> str:
 version: 2  # Versão do esquema de metadados
 
 models:
-  - name: {source}_silver_tbfor # Nome do modelo
+  - name: {source}_tbfor # Nome do modelo
     description: "View Silver da TBFOR"  # Descrição do modelo
     columns:
           - name: cgccpfforne

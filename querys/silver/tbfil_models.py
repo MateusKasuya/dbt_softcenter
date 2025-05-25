@@ -3,7 +3,7 @@ def get_yml_content(source: str) -> str:
 version: 2  # Versão do esquema de metadados
 
 models:
-  - name: {source}_silver_tbfil # Nome do modelo
+  - name: {source}_tbfil # Nome do modelo
     description: "View Silver da TBFIL"  # Descrição do modelo
     columns:
           - name: codfil

@@ -23,6 +23,14 @@ from querys.silver.tbpro import get_query_content as tbpro_sql
 
 
 def silver_models(source: Source):
+    """
+    Generates all silver layer models for a specific source system.
+    This function creates both SQL and YML files for all tables in the silver layer,
+    including CPTIT, FACTRC, FRCTRC, TBCID, TBFOR, TBHIS, TBCLI, TBCTA, TBFIL, and TBPRO.
+
+    Args:
+        source (Source): The source system to generate the silver layer models for.
+    """
     writer = DBTFileWriter(source=source)
 
     list_of_tables = [

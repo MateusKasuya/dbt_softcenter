@@ -24,9 +24,10 @@ build-backend = "poetry.core.masonry.api"
 ruff = "^0.11.10"
 taskipy = "^1.14.1"
 yamlfix = "^0.7.0"
+sqlfluff = "^3.4.0"
 
 [tool.taskipy.tasks]
 fix = "ruff check . --fix"
 run = "set PYTHONPATH=%PYTHONPATH%;. && poetry run python src/main.py"
-format = "ruff format . && find . -type f -name '*.yml' -o -name '*.yaml' | xargs yamlfix"
+format = "ruff format . && find . -type f -name '*.yml' -o -name '*.yaml' | xargs yamlfix && sqlfluff fix . --dialect postgres --ignore templating --ignore target/compiled --ignore .venv"
 

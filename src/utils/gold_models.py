@@ -2,9 +2,21 @@ from src.utils.enums import Source, Table
 from src.utils.writer import DBTFileWriter
 from querys.gold.sql import get_query_content as gold_sql
 from querys.gold.yml import get_yml_content as gold_yml
+from querys.gold.cptit_yml import get_yml_content as cptit_yml
+from querys.gold.factrc_yml import get_yml_content as factrc_yml
+from querys.gold.frctrc_yml import get_yml_content as frctrc_yml
 
 
 def gold_models(source: Source):
+    """
+    Generates all gold layer models for a specific source system.
+    This function creates both SQL and YML files for all tables in the gold layer,
+    including CPTIT, FACTRC, FRCTRC, TBCID, TBFOR, TBHIS, TBCLI, TBCTA, TBFIL, and TBPRO.
+    Special handling is provided for CPTIT, FACTRC, and FRCTRC tables which have custom YML content.
+
+    Args:
+        source (Source): The source system to generate the gold layer models for.
+    """
     writer = DBTFileWriter(source=source)
 
     list_of_tables = [
@@ -21,7 +33,14 @@ def gold_models(source: Source):
     ]
 
     for table in list_of_tables:
-        yml_content = gold_yml(table.value)
+        if table == Table.CPTIT:
+            yml_content = cptit_yml()
+        elif table == Table.FACTRC:
+            yml_content = factrc_yml()
+        elif table == Table.FRCTRC:
+            yml_content = frctrc_yml()
+        else:
+            yml_content = gold_yml(table.value)
         sql_content = gold_sql(table.value)
         writer.create_dbt_gold_model_yml(table=table, yml_content=yml_content)
         writer.create_dbt_gold_model_sql(table=table, sql_content=sql_content)

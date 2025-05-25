@@ -8,8 +8,8 @@ FROM (
 ) s,
 (
     SELECT COUNT(*) AS model_count
-    FROM {{ model }}
-    WHERE empresa = '{{ nome_empresa }}'
+    FROM gold.frctrc
+    WHERE source = '{{ nome_empresa }}'
 ) m
 WHERE s.source_count != m.model_count
 

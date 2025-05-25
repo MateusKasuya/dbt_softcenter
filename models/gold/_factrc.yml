@@ -1,0 +1,37 @@
+---
+version: 2  # Versão do esquema de metadados
+
+models:
+  - name: factrc  # Nome do modelo
+    description: Tabela Gold da factrc    # Descrição do modelo
+    columns:
+      - name: source
+        description: Fonte de origem/ Empresa
+    tests:
+      - factrc_row_count:
+          source_table: FACTRC
+          source_schema: fn9
+          nome_empresa: FN9
+      - factrc_sum_match:
+          source_table: FACTRC
+          source_schema: fn9
+          column_name: vlrfatura
+          nome_empresa: FN9
+      - factrc_row_count:
+          source_table: FACTRC
+          source_schema: mgp
+          nome_empresa: MGP
+      - factrc_sum_match:
+          source_table: FACTRC
+          source_schema: mgp
+          column_name: vlrfatura
+          nome_empresa: MGP
+      - factrc_row_count:
+          source_table: FACTRC
+          source_schema: rcr
+          nome_empresa: RCR
+      - factrc_sum_match:
+          source_table: FACTRC
+          source_schema: rcr
+          column_name: vlrfatura
+          nome_empresa: RCR

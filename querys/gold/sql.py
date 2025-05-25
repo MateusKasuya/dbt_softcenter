@@ -4,21 +4,21 @@ WITH union_all AS (
 SELECT 
     'FN9' AS source,
     *
-FROM fn9_silver_{table}
+FROM silver.fn9_{table}
 
 UNION ALL
 
 SELECT 
     'MGP' AS source,
     *
-FROM mgp_silver_{table}
+FROM silver.mgp_{table}
 
 UNION ALL
 
 SELECT 
     'RCR' AS source,
     *
-FROM rcr_silver_{table}
+FROM silver.rcr_{table}
 )
 
 SELECT *

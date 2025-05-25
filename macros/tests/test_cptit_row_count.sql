@@ -7,7 +7,7 @@ FROM (
 ) s,
 (
     SELECT COUNT(*) AS model_count
-    FROM {{ model }}
+    FROM gold.cptit
     WHERE source = '{{ nome_empresa }}'
 ) m
 WHERE s.source_count != m.model_count

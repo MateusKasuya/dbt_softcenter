@@ -3,7 +3,7 @@ def get_yml_content(source: str) -> str:
 version: 2  # Versão do esquema de metadados
 
 models:
-  - name: {source}_silver_tbcid # Nome do modelo
+  - name: {source}_tbcid # Nome do modelo
     description: "View Silver da TBCID"  # Descrição do modelo
     columns:
           - name: codcid

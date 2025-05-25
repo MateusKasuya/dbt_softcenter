@@ -3,67 +3,54 @@ def get_yml_content(source: str) -> str:
 version: 2  # Versão do esquema de metadados
 
 models:
-  - name: {source}_silver_factrc # Nome do modelo
+  - name: {source}_factrc # Nome do modelo
     description: "View Silver da FACTRC"  # Descrição do modelo
     columns:
+      - name: id_fatura
+        description: ID da Fatura - Primary Key
 
-          - name: nrofatura
-            description: Número da Fatura - Primary Key Composta
+      - name: nroctrc
+        description: Número CTRC - FK FRCTRC
 
-          - name: anofatura
-            description: Ano da Fatura - Primary Key Composta
+      - name: ufctrc
+        description: UF CTRC - FK FRCTRC
 
-          - name: id
-            description: Id da Fatura - Primary Key - nro + ano fatura
+      - name: dataemissao
+        description: Data emissão da Fatura
 
-          - name: cgccpfremete
-            description: CPF/CNPJ Remetente
+      - name: situacao
+        description: Situação em que se encontra a Fatura
 
-          - name: cgccpfdestina
-            description: CPF/CNPJ Destinatário
+      - name: codfilemite
+        description: Código Filial Emitente - FK TBFIL
 
-          - name: cgccpffatura
-            description: CPF/CNPJ Fatura
+      - name: codfilcobra
+        description: Código Filial Cobrador - FK TBFIL
 
-          - name: codfilfatur
-            description: Código Filial Fatura
+      - name: cgccpfdestina
+        description: CPF/CNPJ Destinatário - FK TBCLI
 
-          - name: codfilcobra
-            description: Código Filial Cobrador
+      - name: cgccpfremete
+        description: CPF/CNPJ Remetente - FK TBCLI
 
-          - name: codfilemite
-            description: Código Filial Emitente
+      - name: cgccpffatura
+        description: CPF/CNPJ Fatura - FK TBCLI
 
-          - name: codciddes
-            description: Código Cidade Destino
+      - name: codciddes
+        description: Código Cidade Destino - FK TBCID
 
-          - name: codcidori
-            description: Código Cidade Origem
+      - name: codpro
+        description: Código Produto - FK TBPRO
 
-          - name: codpro
-            description: Código Produto
+      - name: pesofrete_ton
+        description: Peso do frete em toneladas
 
-          - name: dataemissao
-            description: Data de emissão da fatura
+      - name: vlrtotfrete
+        description: Valor Total do frete
 
-          - name: datavencto
-            description: Data Vencimento da Fatura
+      - name: vlrpedagio
+        description: Valor do Pedágio
 
-          - name: datarecbto
-            description: Data de recebimento da fatura
-
-          - name: vlrfatura
-            description: Valor da fatura
-
-          - name: vlrrecbto
-            description: Valor de recebimento da fatura
-
-          - name: vlrsaldo
-            description: Valor de saldo da fatura
-
-          - name: contareduz
-            description: Código Conta Reduzida
-
-          - name: codtransacao
-            description: Código Transação
+      - name: vlrimposto
+        description: Valor do Imposto
 """
