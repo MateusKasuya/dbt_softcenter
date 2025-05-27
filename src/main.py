@@ -15,7 +15,9 @@ def main():
         pipeline = Pipeline(source)
         pipeline.write_source_yml()
         pipeline.write_models()
-        pipeline.write_gold_models()
+
+    pipeline.write_gold_models()
+    pipeline.write_calendario_models()
 
 
 if __name__ == "__main__":

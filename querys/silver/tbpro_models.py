@@ -3,7 +3,7 @@ def get_yml_content(source: str) -> str:
 version: 2  # Versão do esquema de metadados
 
 models:
-  - name: {source}_silver_tbpro # Nome do modelo
+  - name: {source}_tbpro # Nome do modelo
     description: "View Silver da TBPRO"  # Descrição do modelo
     columns:
           - name: codpro

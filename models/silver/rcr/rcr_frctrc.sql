@@ -6,26 +6,26 @@ WITH source AS (
 staging AS (
     SELECT
         -- Identificação e data do CT-e
-        nroctrc,
+        nroctrc::text,
         ufctrc,
-        dataemissao::DATE,
+        dataemissao::date,
 
         -- Situação e tipo do CT-e
         situacao,
 
-        codfilemite,
+        codfilemite::text,
 
         -- Filial
-        codfilcobra,
+        codfilcobra::text,
         cgccpfdestina,
 
         -- Cliente
         cgccpfremete,
         cgccpffatura,
-        codciddes,
+        codciddes::text,
 
         -- Destino
-        codpro,
+        codpro::text,
 
         -- Produto
         vlrtotfrete,

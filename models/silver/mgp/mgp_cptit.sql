@@ -29,9 +29,7 @@ staging AS (
         -- Condicao Fatura
         CASE
             WHEN vlrsaldo = 0 THEN 'Pago'
-            WHEN
-                vlrsaldo > 0 AND CURRENT_DATE <= datavencto::DATE
-                THEN 'A Pagar'
+            WHEN vlrsaldo > 0 AND CURRENT_DATE <= datavencto::DATE THEN 'A Pagar'
             ELSE 'Em Atraso'
         END AS condicao_fatura
     FROM

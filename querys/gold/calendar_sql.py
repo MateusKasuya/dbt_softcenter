@@ -4,7 +4,7 @@ WITH cte AS (
 
     SELECT
         dataemissao
-    FROM {{ ref('frctrc') }}
+    FROM {{{{ ref('frctrc') }}}}
 
 ),
 

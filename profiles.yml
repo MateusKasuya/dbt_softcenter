@@ -2,12 +2,12 @@
 dbt_softcenter:
   outputs:
     dev:
-      dbname: postgres
-      host: localhost
-      password: postgres
-      port: 5433
-      schema: public
-      threads: 1
+      dbname: "{{ env_var('DBT_PROFILES_DBNAME') }}"
+      host: "{{ env_var('DBT_PROFILES_HOST') }}"
+      password: "{{ env_var('DBT_PROFILES_PASSWORD') }}"
+      port: "{{ env_var('DBT_PROFILES_PORT') | as_number }}"  # Porta padrão do PostgreSQL
+      schema: "{{ env_var('DBT_PROFILES_SCHEMA') }}"
+      threads: "{{ env_var('DBT_PROFILES_THREADS') | as_number }}"
       type: postgres
-      user: postgres
+      user: "{{ env_var('DBT_PROFILES_USER') }}"
   target: dev

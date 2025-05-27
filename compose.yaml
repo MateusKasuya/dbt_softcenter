@@ -1,0 +1,30 @@
+---
+services:
+  dbt_softcenter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      - DBT_PROFILES_HOST=${DBT_PROFILES_HOST}
+      - DBT_PROFILES_PORT=${DBT_PROFILES_PORT}
+      - DBT_PROFILES_DBNAME=${DBT_PROFILES_DBNAME}
+      - DBT_PROFILES_USER=${DBT_PROFILES_USER}
+      - DBT_PROFILES_PASSWORD=${DBT_PROFILES_PASSWORD}
+      - DBT_PROFILES_SCHEMA=${DBT_PROFILES_SCHEMA}
+      - DBT_PROFILES_THREADS=${DBT_PROFILES_THREADS}
+    user: root
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+      - ./profiles.yml:/root/.dbt/profiles.yml
+    networks:
+      - firebird_to_postgres_elt-postgres
+
+volumes:
+  postgres-data:
+    driver: local
+
+networks:
+  firebird_to_postgres_elt-postgres:
+    external: true

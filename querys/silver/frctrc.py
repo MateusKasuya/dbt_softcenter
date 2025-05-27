@@ -8,7 +8,7 @@ WITH source AS (
 staging AS (
     SELECT
         -- Identificação e data do CT-e
-        nroctrc,
+        nroctrc::text,
         ufctrc,
         dataemissao::DATE,
 
@@ -24,8 +24,8 @@ staging AS (
         END AS tipo_cte,
 
         -- Filial
-        codfilemite,
-        codfilcobra,
+        codfilemite::text,
+        codfilcobra::text,
 
         -- Cliente
         cgccpfdestina,
@@ -33,10 +33,10 @@ staging AS (
         cgccpffatura,
 
         -- Destino
-        codciddes,
+        codciddes::text,
 
         -- Produto
-        codpro,
+        codpro::text,
 
         -- Valores e peso do frete
         pesofrete / 1000.0 AS pesofrete_ton,

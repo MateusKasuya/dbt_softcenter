@@ -5,6 +5,7 @@ from querys.gold.yml import get_yml_content as gold_yml
 from querys.gold.cptit_yml import get_yml_content as cptit_yml
 from querys.gold.factrc_yml import get_yml_content as factrc_yml
 from querys.gold.frctrc_yml import get_yml_content as frctrc_yml
+from querys.gold.frctrc_sql import get_query_content as frctrc_sql
 
 
 def gold_models(source: Source):
@@ -35,12 +36,15 @@ def gold_models(source: Source):
     for table in list_of_tables:
         if table == Table.CPTIT:
             yml_content = cptit_yml()
+            sql_content = gold_sql(table.value)
         elif table == Table.FACTRC:
             yml_content = factrc_yml()
+            sql_content = gold_sql(table.value)
         elif table == Table.FRCTRC:
             yml_content = frctrc_yml()
+            sql_content = frctrc_sql()
         else:
             yml_content = gold_yml(table.value)
-        sql_content = gold_sql(table.value)
+            sql_content = gold_sql(table.value)
         writer.create_dbt_gold_model_yml(table=table, yml_content=yml_content)
         writer.create_dbt_gold_model_sql(table=table, sql_content=sql_content)

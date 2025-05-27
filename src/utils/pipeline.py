@@ -48,6 +48,6 @@ class Pipeline:
         Generates the calendar models for the specified source system.
         This includes both SQL and YML files for the calendar table.
         """
-        print(f"Writing calendario models for {self.source.value}")
+        print(f"Writing calendario models")
         calendario_models(self.source)
-        print(f"calendario models for {self.source.value} written")
+        print(f"calendario models written")

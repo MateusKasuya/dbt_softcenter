@@ -147,7 +147,7 @@ class DBTFileWriter:
             str: The file path of the generated .yml file.
         """
         base_output_dir = f"models/gold"
-        model_name = f"calendario.yml"
+        model_name = f"_calendario.yml"
         file_path = os.path.join(base_output_dir, model_name)
 
         # Ensure the subdirectory for the schema exists
