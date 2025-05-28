@@ -52,7 +52,7 @@ staging AS (
             WHEN coduf = 'SE' THEN 'Nordeste'
             WHEN coduf = 'BA' THEN 'Nordeste'
             ELSE 'Outros'
-        END AS regiao,
+        END AS regiao
     
     FROM source
 )

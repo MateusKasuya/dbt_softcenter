@@ -6,7 +6,7 @@ SELECT
     cli.*,
     cid.cidade_uf
 FROM silver.fn9_tbcli cli
-LEFT JOIN silver.tbcid cid ON cli.codcid = cid.codcid
+LEFT JOIN silver.fn9_tbcid cid ON cli.codcid = cid.codcid
 
 UNION ALL
 
@@ -15,7 +15,7 @@ SELECT
     cli.*,
     cid.cidade_uf
 FROM silver.mgp_tbcli cli
-LEFT JOIN silver.tbcid cid ON cli.codcid = cid.codcid
+LEFT JOIN silver.mgp_tbcid cid ON cli.codcid = cid.codcid
 
 UNION ALL
 
@@ -24,7 +24,7 @@ SELECT
     cli.*,
     cid.cidade_uf
 FROM silver.rcr_tbcli cli
-LEFT JOIN silver.tbcid cid ON cli.codcid = cid.codcid
+LEFT JOIN silver.rcr_tbcid cid ON cli.codcid = cid.codcid
 )
 
 SELECT *

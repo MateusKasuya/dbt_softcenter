@@ -4,7 +4,7 @@ WITH union_all AS (
         cli.*,
         cid.cidade_uf
     FROM silver.fn9_tbcli AS cli
-    LEFT JOIN silver.tbcid AS cid ON cli.codcid = cid.codcid
+    LEFT JOIN silver.fn9_tbcid AS cid ON cli.codcid = cid.codcid
 
     UNION ALL
 
@@ -13,7 +13,7 @@ WITH union_all AS (
         cli.*,
         cid.cidade_uf
     FROM silver.mgp_tbcli AS cli
-    LEFT JOIN silver.tbcid AS cid ON cli.codcid = cid.codcid
+    LEFT JOIN silver.mgp_tbcid AS cid ON cli.codcid = cid.codcid
 
     UNION ALL
 
@@ -22,7 +22,7 @@ WITH union_all AS (
         cli.*,
         cid.cidade_uf
     FROM silver.rcr_tbcli AS cli
-    LEFT JOIN silver.tbcid AS cid ON cli.codcid = cid.codcid
+    LEFT JOIN silver.rcr_tbcid AS cid ON cli.codcid = cid.codcid
 )
 
 SELECT *
