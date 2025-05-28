@@ -53,8 +53,6 @@ staging AS (
             WHEN coduf = 'BA' THEN 'Nordeste'
             ELSE 'Outros'
         END AS regiao,
-
-        codcid
     
     FROM source
 )

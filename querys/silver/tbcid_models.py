@@ -24,6 +24,4 @@ models:
           - name: regiao
             description: Região da Cidade
 
-          - name: codcid
-            description: Código Cidade - Foreign Key
 """

@@ -7,11 +7,9 @@ staging AS (
     SELECT
         codcid,
         coduf,
-        codcid,
         INITCAP(nome) AS cidade,
         INITCAP(nome) || '-' || coduf AS cidade_uf,
         'Brasil,' || INITCAP(nome) || ',' || coduf AS localizacao_pbi,
-
         CASE
             WHEN coduf = 'SP' THEN 'Sudeste'
             WHEN coduf = 'RJ' THEN 'Sudeste'

@@ -11,4 +11,7 @@ models:
 
           - name: cliente
             description: Nome Fantasia Cliente
+
+          - name: codcid
+            description: Código Cidade - Foreign Key
 """
