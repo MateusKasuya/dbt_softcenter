@@ -76,14 +76,12 @@ calendario AS (
             WHEN 12 THEN 'Dez'
         END || '/' || RIGHT(EXTRACT(YEAR FROM data)::TEXT, 2) AS mes_ano,
 
-        COALESCE(
-            EXTRACT(MONTH FROM data) = EXTRACT(MONTH FROM CURRENT_DATE)
-            AND EXTRACT(YEAR FROM data) = EXTRACT(YEAR FROM CURRENT_DATE), false
-        ) AS mes_atual,
+        COALESCE(EXTRACT(MONTH FROM data) = EXTRACT(MONTH FROM CURRENT_DATE)
+        AND EXTRACT(YEAR FROM data) = EXTRACT(YEAR FROM CURRENT_DATE), FALSE) AS mes_atual,
 
         EXTRACT(DAY FROM data) AS dia,
 
-        COALESCE(EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM data) < 3, false) AS flag_ano_movel,
+        COALESCE(EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM data) < 3, FALSE) AS flag_ano_movel,
 
         EXTRACT(YEAR FROM data) = EXTRACT(YEAR FROM CURRENT_DATE) AS flag_ano_atual
 

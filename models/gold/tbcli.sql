@@ -1,22 +1,28 @@
 WITH union_all AS (
     SELECT
         'FN9' AS source,
-        *
-    FROM silver.fn9_tbcli
+        cli.*,
+        cid.cidade_uf
+    FROM silver.fn9_tbcli AS cli
+    LEFT JOIN silver.tbcid AS cid ON cli.codcid = cid.codcid
 
     UNION ALL
 
     SELECT
         'MGP' AS source,
-        *
-    FROM silver.mgp_tbcli
+        cli.*,
+        cid.cidade_uf
+    FROM silver.mgp_tbcli AS cli
+    LEFT JOIN silver.tbcid AS cid ON cli.codcid = cid.codcid
 
     UNION ALL
 
     SELECT
         'RCR' AS source,
-        *
-    FROM silver.rcr_tbcli
+        cli.*,
+        cid.cidade_uf
+    FROM silver.rcr_tbcli AS cli
+    LEFT JOIN silver.tbcid AS cid ON cli.codcid = cid.codcid
 )
 
 SELECT *
