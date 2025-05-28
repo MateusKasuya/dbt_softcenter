@@ -17,7 +17,6 @@ services:
     user: root
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:rw
-      - ./profiles.yml:/root/.dbt/profiles.yml
     networks:
       - firebird_to_postgres_elt-postgres
 

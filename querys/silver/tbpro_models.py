@@ -9,6 +9,6 @@ models:
           - name: codpro
             description: Código Produto - Primary Key
 
-          - name: nome
+          - name: produto
             description: Nome Produto
 """

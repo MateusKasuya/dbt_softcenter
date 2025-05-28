@@ -9,6 +9,6 @@ models:
           - name: cgccpfforne
             description: Código Fornecedor - Primary Key
 
-          - name: nomefantasia
+          - name: fornecedor
             description: Nome Fantasia Fornecedor
 """

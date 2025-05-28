@@ -9,7 +9,7 @@ models:
           - name: codcid
             description: Código Cidade - Primary Key
 
-          - name: nome
+          - name: cidade
             description: Nome Cidade
 
           - name: coduf
@@ -20,4 +20,10 @@ models:
 
           - name: localizacao_pbi
             description: Campo para ser utilizado como Mapa no Power BI
+
+          - name: regiao
+            description: Região da Cidade
+
+          - name: codcid
+            description: Código Cidade - Foreign Key
 """

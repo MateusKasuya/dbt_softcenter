@@ -9,6 +9,6 @@ models:
           - name: codfil
             description: Código Filial - Primary Key
 
-          - name: nome
+          - name: filial
             description: Nome Filial
 """

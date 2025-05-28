@@ -8,7 +8,7 @@ WITH source AS (
 staging AS (
     SELECT
         codpro,
-        INITCAP(nome) as nome
+        INITCAP(nome) as produto
     FROM source
 )
 

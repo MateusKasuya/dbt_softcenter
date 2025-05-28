@@ -10,7 +10,7 @@ WITH source AS (
 staging AS (
     SELECT
         codfil,
-        INITCAP(nome) AS nome
+        INITCAP(nome) AS filial
     FROM
         source
 )

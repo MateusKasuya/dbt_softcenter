@@ -9,6 +9,6 @@ models:
           - name: cgccpfcli
             description: CPF/CNPJ Cliente - Primary Key
 
-          - name: nomefantasia
+          - name: cliente
             description: Nome Fantasia Cliente
 """

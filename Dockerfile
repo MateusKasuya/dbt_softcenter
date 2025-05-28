@@ -13,6 +13,10 @@ COPY . .
 # Instala dependências do Poetry
 RUN poetry install --only main --no-root
 
+# Garante a pasta e copia o profile pro local padrão do dbt
+RUN mkdir -p /root/.dbt && \
+    cp /src/profiles.yml /root/.dbt/profiles.yml
+
 # Cria um script shell para executar os comandos dbt
 RUN echo '#!/bin/bash\npoetry run dbt run\npoetry run dbt test' > /src/run_dbt.sh && \
     chmod +x /src/run_dbt.sh

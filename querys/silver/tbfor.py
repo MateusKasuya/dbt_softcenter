@@ -8,7 +8,7 @@ WITH source AS (
 staging AS (
     SELECT
         cgccpfforne,
-        INITCAP(nomefantasia) as nomefantasia
+        INITCAP(nomefantasia) as fornecedor
     FROM source
 )
 
