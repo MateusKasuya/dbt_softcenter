@@ -1,4 +1,4 @@
-from src.utils.enums import Source, Table
+from src.utils.enums import Source
 from src.utils.writer import DBTFileWriter
 from querys.gold.calendar_sql import get_query_content as calendar_sql
 from querys.gold.calendar_yml import get_yml_content as calendar_yml

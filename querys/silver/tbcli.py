@@ -8,8 +8,7 @@ WITH source AS (
 staging AS (
     SELECT
         cgccpfcli,
-        INITCAP(nomefantasia) AS cliente,
-        codcid
+        INITCAP(nomefantasia) AS cliente
     FROM source
 )
 

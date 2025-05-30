@@ -6,7 +6,7 @@ WITH source AS (
 staging AS (
     SELECT
         contareduz,
-        nomeconta
+        INITCAP(nomeconta) AS nomeconta
 
     FROM source
 )
