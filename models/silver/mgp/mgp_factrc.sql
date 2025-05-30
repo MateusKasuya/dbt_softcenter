@@ -25,7 +25,12 @@ staging AS (
         vlrsaldo,
         contareduz,
         codtransacao,
-        nrofatura || '-' || anofatura AS id
+        nrofatura || '-' || anofatura AS id,
+        CASE
+            WHEN datavencto < CURRENT_DATE AND vlrsaldo > 0 THEN 'Em Atraso'
+            WHEN vlrsaldo = 0 THEN 'Recebida'
+            ELSE 'A Receber'
+        END AS condicao_fatura
     FROM
         source
 )

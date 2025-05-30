@@ -6,29 +6,14 @@ models:
   - name: {source}_factrc # Nome do modelo
     description: "View Silver da FACTRC"  # Descrição do modelo
     columns:
-      - name: id_fatura
-        description: ID da Fatura - Primary Key
+      - name: nrofatura
+        description: Número Fatura - Primary Key
 
-      - name: nroctrc
-        description: Número CTRC - FK FRCTRC
+      - name: anofatura
+        description: Ano Fatura - Primary Key
 
-      - name: ufctrc
-        description: UF CTRC - FK FRCTRC
-
-      - name: dataemissao
-        description: Data emissão da Fatura
-
-      - name: situacao
-        description: Situação em que se encontra a Fatura
-
-      - name: codfilemite
-        description: Código Filial Emitente - FK TBFIL
-
-      - name: codfilcobra
-        description: Código Filial Cobrador - FK TBFIL
-
-      - name: cgccpfdestina
-        description: CPF/CNPJ Destinatário - FK TBCLI
+      - name: id
+        description: ID Fatura - Primary Key Composta
 
       - name: cgccpfremete
         description: CPF/CNPJ Remetente - FK TBCLI
@@ -36,21 +21,51 @@ models:
       - name: cgccpffatura
         description: CPF/CNPJ Fatura - FK TBCLI
 
+      - name: codfilfatur
+        description: Código Filial Emitente - FK TBFIL
+
+      - name: codfilcobra
+        description: Código Filial Cobrador - FK TBFIL
+
+      - name: codfilemite
+        description: Código Filial Emitente - FK TBFIL
+
+      - name: cgccpfdestina
+        description: CPF/CNPJ Destinatário - FK TBCLI
+
       - name: codciddes
         description: Código Cidade Destino - FK TBCID
+
+      - name: codcidori
+        description: Código Cidade Origem - FK TBCID
 
       - name: codpro
         description: Código Produto - FK TBPRO
 
-      - name: pesofrete_ton
-        description: Peso do frete em toneladas
+      - name: dataemissao
+        description: Data Emissão
 
-      - name: vlrtotfrete
-        description: Valor Total do frete
+      - name: datavencto
+        description: Data Vencimento
 
-      - name: vlrpedagio
-        description: Valor do Pedágio
+      - name: datarecbto
+        description: Data Recebimento
 
-      - name: vlrimposto
-        description: Valor do Imposto
+      - name: vlrfatura
+        description: Valor Fatura
+
+      - name: vlrrecbto
+        description: Valor Recebido
+
+      - name: vlrsaldo
+        description: Valor Saldo
+
+      - name: condicao_fatura
+        description: Condição Fatura
+
+      - name: contareduz
+        description: Controle Reduzido
+
+      - name: codtransacao
+        description: Código Transação - FK TBPRO
 """

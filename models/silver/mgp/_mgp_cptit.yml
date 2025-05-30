@@ -5,53 +5,38 @@ models:
   - name: mgp_cptit  # Nome do modelo
     description: View Silver da CPTIT    # Descrição do modelo
     columns:
-      - name: nroctrc
+      - name: nrocontrole
         description: Número CTRC - Primary Key Composta
 
-      - name: ufctrc
-        description: UF CTRC - Primary Key Composta
+      - name: anocontrole
+        description: Ano CTRC - Primary Key Composta
 
-      - name: dataemissao
-        description: Data emissão CTE
+      - name: codfil
+        description: Código Filial - FK TBFIL
 
-      - name: situacao
-        description: Situação em que se encontra o CTRC
+      - name: cgccpfforne
+        description: CPF/CNPJ Fornecedor - FK TBCLI
 
-      - name: tipo_cte
-        description: Tipo de CT-e - Classificação do tipo do CT-e
-
-      - name: codfilemite
-        description: Código Filial Emitente - FK TBFIL
-
-      - name: codfilcobra
-        description: Código Filial Cobrador - FK TBFIL
-
-      - name: cgccpfdestina
-        description: CPF/CNPJ Destinatário - FK TBCLI
-
-      - name: cgccpfremete
-        description: CPF/CNPJ Remetente - FK TBCLI
-
-      - name: cgccpffatura
-        description: CPF/CNPJ Fatura - FK TBCLI
-
-      - name: codciddes
-        description: Código Cidade Destino - FK TBCID
-
-      - name: codpro
-        description: Código Produto - FK TBPRO
-
-      - name: pesofrete_ton
-        description: Peso do frete em toneladas
+      - name: codtransacao
+        description: Código Transação - FK TBPRO
 
       - name: vlrtotal
-        description: Valor Total do frete
+        description: Valor Total
 
-      - name: vlrpedagio
-        description: Valor do Pedágio
+      - name: vlrpago
+        description: Valor Saldo
 
-      - name: vlrimposto
-        description: Valor do Imposto
+      - name: vlrsaldo
+        description: Valor Saldo
 
-      - name: id_fatura
-        description: ID da Fatura - FK FACTRC
+      - name: dataemissao
+        description: Data Emissão
+
+      - name: datamovto
+        description: Data Movimento
+
+      - name: datavencto
+        description: Data Vencimento
+
+      - name: condicao_fatura
+        description: Condição Fatura
