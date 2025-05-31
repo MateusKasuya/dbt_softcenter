@@ -3,6 +3,7 @@ from src.utils.writer import DBTFileWriter
 from querys.gold.sql import get_query_content as gold_sql
 from querys.gold.yml import get_yml_content as gold_yml
 from querys.gold.cptit_yml import get_yml_content as cptit_yml
+from querys.gold.cptit_sql import get_query_content as cptit_sql
 from querys.gold.factrc_yml import get_yml_content as factrc_yml
 from querys.gold.frctrc_yml import get_yml_content as frctrc_yml
 from querys.gold.frctrc_sql import get_query_content as frctrc_sql
@@ -36,7 +37,7 @@ def gold_models(source: Source):
     for table in list_of_tables:
         if table == Table.CPTIT:
             yml_content = cptit_yml()
-            sql_content = gold_sql(table.value)
+            sql_content = cptit_sql()
         elif table == Table.FACTRC:
             yml_content = factrc_yml()
             sql_content = gold_sql(table.value)

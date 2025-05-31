@@ -32,7 +32,6 @@ staging AS (
 
         -- Valores e peso do frete
         vlrpedagio,
-        vlrimposto,
         CASE indctetpcte
             WHEN '0' THEN 'Normal'
             WHEN '1' THEN 'Complementar'
@@ -40,7 +39,8 @@ staging AS (
             WHEN '3' THEN 'Substituição'
             ELSE indctetpcte
         END AS tipo_cte,
-        pesofrete / 1000.0 AS pesofrete_ton,
+        totalpeso / 1000.0 AS pesofrete_ton,
+        vlrcarreto + vlrseguromerca + vlrpis + vlriapas + vlricmsst + vlricms AS vlrcusto,
 
         -- Fatura
         nrofatura || '-' || anofatura AS id_fatura

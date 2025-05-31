@@ -11,13 +11,13 @@ staging AS (
     SELECT
 
         -- Primary Keys
-        nrocontrole,
-        anocontrole,
+        nrocontrole::text,
+        anocontrole::text,
 
         -- Foreign Keys
-        codfil,
-        cgccpfforne,
-        codtransacao,
+        codfil::text,
+        cgccpfforne::text,
+        codtransacao::text,
 
         -- Valores
         vlrtotal,
@@ -34,7 +34,9 @@ staging AS (
             WHEN vlrsaldo = 0 THEN 'Pago'
             WHEN vlrsaldo > 0 AND CURRENT_DATE <= datavencto::DATE THEN 'A Pagar'
             ELSE 'Em Atraso'
-        END AS condicao_fatura
+        END AS condicao_fatura,
+        
+        contareduz::text
     FROM
         source
 )

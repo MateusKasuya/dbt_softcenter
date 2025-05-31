@@ -26,6 +26,7 @@ staging AS (
         contareduz,
         codtransacao,
         nrofatura || '-' || anofatura AS id,
+        datarecbto::DATE - dataemissao::DATE AS dias_recebimento,
         CASE
             WHEN datavencto < CURRENT_DATE AND vlrsaldo > 0 THEN 'Em Atraso'
             WHEN vlrsaldo = 0 THEN 'Recebida'

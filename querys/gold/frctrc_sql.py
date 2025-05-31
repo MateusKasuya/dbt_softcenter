@@ -18,9 +18,9 @@ WITH union_all AS (
         pesofrete_ton,
         vlrtotfrete,
         vlrpedagio,
-        vlrimposto,
+        vlrcusto,
         id_fatura
-    FROM silver.fn9_frctrc
+    FROM {{{{ref('fn9_frctrc')}}}}
 
     UNION ALL
 
@@ -41,9 +41,9 @@ WITH union_all AS (
         pesofrete_ton,
         vlrtotfrete,
         vlrpedagio,
-        vlrimposto,
+        vlrcusto,
         id_fatura
-    FROM silver.mgp_frctrc
+    FROM {{{{ref('mgp_frctrc')}}}}
 
     UNION ALL
 
@@ -64,9 +64,9 @@ WITH union_all AS (
         pesofrete_ton,
         vlrtotfrete,
         vlrpedagio,
-        vlrimposto,
+        vlrcusto,
         id_fatura
-    FROM silver.rcr_frctrc
+    FROM {{{{ref('rcr_frctrc')}}}}
 )
 
 SELECT *

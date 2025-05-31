@@ -24,6 +24,7 @@ staging AS (
         dataemissao::DATE,
         datavencto::DATE,
         datarecbto::DATE,
+        datarecbto::DATE - dataemissao::DATE AS dias_recebimento,
         vlrfatura,
         vlrrecbto,
         vlrsaldo,

@@ -2,21 +2,21 @@ WITH union_all AS (
     SELECT
         'FN9' AS source,
         *
-    FROM silver.fn9_tbfil
+    FROM {{ ref('fn9_tbfil') }}
 
     UNION ALL
 
     SELECT
         'MGP' AS source,
         *
-    FROM silver.mgp_tbfil
+    FROM {{ ref('mgp_tbfil') }}
 
     UNION ALL
 
     SELECT
         'RCR' AS source,
         *
-    FROM silver.rcr_tbfil
+    FROM {{ ref('rcr_tbfil') }}
 )
 
 SELECT *

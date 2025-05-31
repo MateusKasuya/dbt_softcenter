@@ -2,21 +2,21 @@ WITH union_all AS (
     SELECT
         'FN9' AS source,
         *
-    FROM silver.fn9_tbhis
+    FROM {{ ref('fn9_tbhis') }}
 
     UNION ALL
 
     SELECT
         'MGP' AS source,
         *
-    FROM silver.mgp_tbhis
+    FROM {{ ref('mgp_tbhis') }}
 
     UNION ALL
 
     SELECT
         'RCR' AS source,
         *
-    FROM silver.rcr_tbhis
+    FROM {{ ref('rcr_tbhis') }}
 )
 
 SELECT *

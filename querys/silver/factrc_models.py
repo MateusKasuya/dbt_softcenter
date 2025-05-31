@@ -51,6 +51,9 @@ models:
       - name: datarecbto
         description: Data Recebimento
 
+      - name: dias_recebimento
+        description: Dias Recebimento
+
       - name: vlrfatura
         description: Valor Fatura
 

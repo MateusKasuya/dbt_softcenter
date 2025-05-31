@@ -39,10 +39,10 @@ staging AS (
         codpro::text,
 
         -- Valores e peso do frete
-        pesofrete / 1000.0 AS pesofrete_ton,
+        totalpeso / 1000.0 AS pesofrete_ton,
         vlrtotfrete,
         vlrpedagio,
-        vlrimposto,
+        vlrcarreto + vlrseguromerca + vlrpis + vlriapas + vlricmsst + vlricms AS vlrcusto,
 
         -- Fatura
         nrofatura || '-' || anofatura AS id_fatura

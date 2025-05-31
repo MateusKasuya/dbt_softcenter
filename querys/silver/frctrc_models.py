@@ -51,8 +51,8 @@ models:
       - name: vlrpedagio
         description: Valor do Pedágio
 
-      - name: vlrimposto
-        description: Valor do Imposto
+      - name: vlrcusto
+        description: Valor do Custo
 
       - name: id_fatura
         description: ID da Fatura - FK FACTRC

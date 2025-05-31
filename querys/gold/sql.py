@@ -4,21 +4,21 @@ WITH union_all AS (
 SELECT 
     'FN9' AS source,
     *
-FROM silver.fn9_{table}
+FROM {{{{ref('fn9_{table}')}}}}
 
 UNION ALL
 
 SELECT 
     'MGP' AS source,
     *
-FROM silver.mgp_{table}
+FROM {{{{ref('mgp_{table}')}}}}
 
 UNION ALL
 
 SELECT 
     'RCR' AS source,
     *
-FROM silver.rcr_{table}
+FROM {{{{ref('rcr_{table}')}}}}
 )
 
 SELECT *

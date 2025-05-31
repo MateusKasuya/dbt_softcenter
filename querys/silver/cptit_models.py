@@ -42,4 +42,6 @@ models:
       - name: condicao_fatura
         description: Condição Fatura
 
+      - name: contareduz
+        description: Conta de Pagamento
 """

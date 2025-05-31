@@ -1,3 +1,5 @@
+def get_query_content() -> str:
+    return f"""
 WITH union_all AS (
     SELECT
         'FN9' AS source,
@@ -14,7 +16,7 @@ WITH union_all AS (
         datavencto,
         condicao_fatura,
         contareduz
-    FROM {{ ref('fn9_cptit') }}
+    FROM {{{{ref('fn9_cptit')}}}}
 
     UNION ALL
 
@@ -33,7 +35,8 @@ WITH union_all AS (
         datavencto,
         condicao_fatura,
         contareduz
-    FROM {{ ref('mgp_cptit') }}
+    FROM {{{{ref('mgp_cptit')}}}}
+
 
     UNION ALL
 
@@ -52,8 +55,9 @@ WITH union_all AS (
         datavencto,
         condicao_fatura,
         contareduz
-    FROM {{ ref('rcr_cptit') }}
+    FROM {{{{ref('rcr_cptit')}}}}
 )
 
 SELECT *
 FROM union_all
+"""
